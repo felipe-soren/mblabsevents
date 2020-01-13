@@ -9,6 +9,7 @@ const Container = styled.div`
 
   input {
     height: 46px;
+    width: 35%;
     color: #777;
     font-size: 15px;
     padding: 0 20px;
@@ -22,7 +23,7 @@ const Container = styled.div`
     font-size: 15px;
     background: #fc6963;
     height: 46px;
-    width: 221px;
+    width: 30%;
     border: 0;
     cursor: pointer;
   }
