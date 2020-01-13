@@ -58,7 +58,7 @@ class SignUp extends Component {
           />
           <button type="submit">Cadastrar grátis</button>
           <hr />
-          <Link to="/">Fazer login</Link>
+          <Link to="/sigin">Fazer login</Link>
         </Form>
       </Container>
     );

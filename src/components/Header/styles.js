@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.header`
   background-color: white;
   width: 100%;
-  position: absolute;
   top: 0;
   left: 0;
   display: flex;
@@ -14,7 +13,7 @@ export const Container = styled.header`
   border-bottom: 1px solid rgba(46, 62, 72, 0.12);
 
   img {
-    width: 24px
+    width: 90px
   }
 
   nav {
@@ -22,7 +21,7 @@ export const Container = styled.header`
   }
   
   li a {
-    color: #191c03;
+    color: #c4c4c4;
   }
 
   li {
