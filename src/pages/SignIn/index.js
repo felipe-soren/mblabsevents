@@ -23,6 +23,7 @@ class SignIn extends Component {
         const response = await api.post("/login", { email, password });
         login(response.data.token, response.data.user._id);
         this.props.history.push("/app");
+        window.location.reload();
       } catch (err) {
         this.setState({
           error:
@@ -30,7 +31,6 @@ class SignIn extends Component {
         });
       }
     }
-    window.location.reload();
   };
 
   render() {
