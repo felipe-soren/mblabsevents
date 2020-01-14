@@ -66,5 +66,6 @@ export const Events = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-gap: 2rem;
+  align-items: center;
+  grid-gap: 1rem;
 `;

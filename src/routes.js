@@ -7,6 +7,8 @@ import SignIn from "./pages/SignIn";
 
 import Main from "./pages/Main"
 
+import EventDetail from "./pages/EventDetail"
+
 import { isAuthenticated } from "./services/auth";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -28,6 +30,7 @@ const Routes = () => (
     <Route exact path="/sigin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/app" component={Main} />
+      <Route path="/event/:name" component={EventDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
   </BrowserRouter>
