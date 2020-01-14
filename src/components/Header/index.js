@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from '../../assets/logomb.jpg'
 import { isAuthenticated, logout } from "../../services/auth";
 
@@ -26,9 +26,12 @@ export default class header extends Component {
         <a href="/app"><img src={logo} alt="Home" /></a>
 
         <nav>
-          <li><a href="/sigin">Login</a></li>
-          <li><a href="/signup">Cadastre-se</a></li>
-          {this.state.authenticated ? (<li><a onClick={this.handleClick} href="/app">Sair</a></li>) : ("")}
+          {this.state.authenticated ? (<li><a onClick={this.handleClick} href="/app">Sair</a></li>) : (
+            <>
+            <li><a href="/signin">Login</a></li>
+            <li><a href="/signup">Cadastre-se</a></li>
+            </>
+          )}
         </nav>
       </Container>
     );
