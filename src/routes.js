@@ -27,7 +27,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-    <Route exact path="/sigin" component={SignIn} />
+    <Route exact path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/app" component={Main} />
       <Route path="/event/:name" component={EventDetail} />

@@ -8,4 +8,5 @@ export const login = (token, _id) => {
 };
 export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(USER_ID_KEY);
 };

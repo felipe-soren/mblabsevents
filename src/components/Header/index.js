@@ -17,6 +17,7 @@ export default class header extends Component {
     e.preventDefault()
     logout()
     this.setState( { authenticated: isAuthenticated() } )
+    window.location.reload();
   }
   
   render() {
