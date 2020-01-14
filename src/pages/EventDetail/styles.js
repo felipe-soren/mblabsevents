@@ -10,6 +10,15 @@ grid-template-rows: 40vh 70vh;
 grid-template-areas: "header header"
                      "main aside";
 
+@media (max-width: 600px) {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 40vh 20vh 70vh;
+  grid-template-areas: "header header"
+                        "aside aside"
+                        "main main";
+
+}
+                     
 header {
   display: flex;
   grid-area: header;
@@ -23,7 +32,7 @@ header {
 main {
   grid-area: main;
   padding: 10% 0 5% 15%;
-  p {
+  + p {
     padding: 3% 0 0 0; 
   }
 }
@@ -40,7 +49,7 @@ aside {
     height: 56px;
     border: 0;
     border-radius: 40px;
-    width: 50%;
+    width: 70%;
     cursor: pointer;
     &:hover{
       background: #61BD86

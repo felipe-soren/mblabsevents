@@ -54,7 +54,7 @@ class EventDetail extends React.Component {
           <p>{this.state.event.description}</p>
         </main>
         <aside>
-        <button onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button>
+        <button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button>
         </aside>
       </Container>
       </>
