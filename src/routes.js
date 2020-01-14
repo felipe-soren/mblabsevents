@@ -30,6 +30,7 @@ const Routes = () => (
     <Route exact path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
       <Route path="/app" component={Main} />
+      <Route exact path="/" component= {() => (<Redirect to={{ pathname: "/App" }} />) }/>
       <Route path="/event/:name" component={EventDetail} />
       <Route path="*" component={() => <h1>Page not found</h1>} />
     </Switch>
