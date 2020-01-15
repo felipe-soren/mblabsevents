@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Link, withRouter } from "react-router-dom";
 import Api from "../../services/api"
 import Events from "../Main/components/Events"
-// import { Container } from './styles';
+import { Container } from './styles';
 
 class MyEvents extends Component {
 state = {
@@ -18,7 +18,11 @@ state = {
   render() {
     return (
         <>
-        <h1>Meus Eventos</h1>
+        <Container>
+          <div>
+            <h1>Meus Eventos</h1>
+          </div>
+        </Container>
         <Events events= {this.state.events}/>
         </>
     );
