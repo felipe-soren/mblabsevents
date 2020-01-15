@@ -26,7 +26,12 @@ export default class header extends Component {
         <a href="/app"><img src={logo} alt="Home" /></a>
 
         <nav>
-          {this.state.authenticated ? (<li><a onClick={this.handleClick} href="/app">Sair</a></li>) : (
+          {this.state.authenticated ? (
+          <>
+          <li><a onClick={this.handleClick} href="/app">Sair</a></li>
+          <li><a href="/eventos">Meus Eventos</a></li>
+          </>
+          ) : (
             <>
             <li><a href="/signin">Login</a></li>
             <li><a href="/signup">Cadastre-se</a></li>

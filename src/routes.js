@@ -7,6 +7,8 @@ import SignIn from "./pages/SignIn";
 
 import Main from "./pages/Main"
 
+import MyEvents from "./pages/MyEvents"
+
 import EventDetail from "./pages/EventDetail"
 
 import { isAuthenticated } from "./services/auth";
@@ -27,8 +29,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <BrowserRouter>
     <Switch>
-    <Route exact path="/signin" component={SignIn} />
+      <Route exact path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/eventos" component={MyEvents}></Route>
       <Route path="/app" component={Main} />
       <Route exact path="/" component= {() => (<Redirect to={{ pathname: "/App" }} />) }/>
       <Route path="/event/:name" component={EventDetail} />
