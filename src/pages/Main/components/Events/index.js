@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import * as moment from 'moment'; 
 import 'moment/locale/pt-br';
 
-import { Container, Events } from './styles';
+import { Container } from './styles';
 
 
 const events = ({events}) => (
   <Container>
-  <Events>
     {events.map( event => (
       <Link to={{
         pathname: `event/${event.name}`,
         state: { event: event }
       }}>
+    <div className="box">
       <div className="card">
         <header>
           <img src={event.urlImage} alt="Evento"/>
@@ -30,9 +30,9 @@ const events = ({events}) => (
         </li>
       </ul>
       </div>
+      </div>
       </Link>
     ) )}
-  </Events>
 </Container>
 )
 

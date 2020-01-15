@@ -2,18 +2,44 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-margin-top: 90px;
+@media (min-width: 600px) {
+  grid-template-columns: 100%;
+  margin: 50px;
+}
+
+/* @media (min-width: 800px) {
+  grid-template-columns: 50% 50%;
+  margin: 50px;
+} */
+
+@media (min-width: 1200px) {
+margin: 50px 500px 0 500px;
+display: grid;
+grid-template-columns: 33% 33% 33%;
+grid-gap: 10px;
+background-color: #eee;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
 
 .card {
   width: 250px;
   background: #fff;
   border-radius: 30px;
   margin: 0 10px;
-
+  height: 100%;
   display: flex;
   flex-direction: column;
-}
-header {
+
+  header {
     display: -webkit-flex;
     display: flex;
     -webkit-align-items: center;
@@ -59,13 +85,6 @@ ul {
     }
   }
 
-`
+}
 
-export const Events = styled.div`
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  align-items: center;
-  grid-gap: 1rem;
-`;
+`
