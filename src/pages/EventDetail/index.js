@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Redirect } from "react-router-dom";
 import { isAuthenticated } from "../../services/auth";
 import Api from '../../services/api'
+import ReactLoading from "react-loading";
 import TicketInfo from '../EventDetail/components/TicketInfo'
 import * as moment from 'moment';
 import 'moment/locale/pt-br';
@@ -51,7 +52,9 @@ class EventDetail extends React.Component {
   render() {
     return(
       <>
-      {this.state.isLoading ? (<Container><h1>Carregando</h1></Container>) : (
+      {this.state.isLoading ? 
+      (<Container><main style={{justifyContent: "center", alignItems: "center"}}>
+        <ReactLoading type={"bars"} color={"black"} /></main></Container>) : (
       <Container>
         <header><img src={this.state.event.urlImage} alt="Evento"/></header>
         <main>
@@ -70,7 +73,9 @@ class EventDetail extends React.Component {
           <p>{this.state.event.description}</p>
         </main>
         <aside>
-          {this.state.event.eventType === "Free" ? (<button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button> ) : (<TicketInfo price = {this.state.event.price}/>)}
+          {this.state.event.eventType === "Free" ? (<button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant
+           ? "DESISTIR" : "PARTICIPAR" }</button> ) : (<TicketInfo event = {this.state.event} 
+           isParticipant = {this.state.userIsParticipant}/>)}
         </aside>
       </Container>)}
       </>

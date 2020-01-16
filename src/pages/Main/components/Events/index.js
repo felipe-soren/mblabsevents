@@ -9,7 +9,7 @@ import { Container } from './styles';
 const events = ({events}) => (
   <Container>
     {events.map( event => (
-    <div className="box">
+    <div className="box" key= {event._id}>
       <div className="card">
         <header>
           <Link to={{

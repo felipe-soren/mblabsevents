@@ -35,7 +35,7 @@ export const Container = styled.div`
   .title {
     padding: 5px;
     color: white;
-    font-size: 38px;
+    font-size: 30px;
     background: black;
     width: 100%;
     display: flex;
