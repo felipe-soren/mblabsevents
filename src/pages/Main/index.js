@@ -9,7 +9,8 @@ export default class Main extends Component {
   state = {
     events: [],
     eventInput: "",
-    cityInput: ""
+    cityInput: "",
+    eventTypeSelect: ""
   }
 
   async componentDidMount() {
@@ -24,7 +25,14 @@ export default class Main extends Component {
       filters = filters + `title=${this.state.eventInput}&`
     }
     if(this.state.cityInput !== ""){
-      filters = filters + `city=${this.state.cityInput}`
+      filters = filters + `city=${this.state.cityInput}&`
+    }
+    if(this.state.eventTypeSelect !== "Todos"){
+      if(this.state.eventTypeSelect === "gratuitos") {
+        filters = filters + `type=free`
+      } else {
+        filters = filters + `type=paid`
+      }
     }
     console.log(filters)
     const response = await Api.get(`/events?${filters}`)
@@ -37,10 +45,15 @@ export default class Main extends Component {
     <Fragment>
       <Container>
         <form onSubmit={this.searchEvent}>
-          <input type="text" placeholder= "Evento" value={this.state.eventInput} 
+          <input className="event" type="text" placeholder= "Evento" value={this.state.eventInput} 
           onChange={e => this.setState({ eventInput: e.target.value })}/>
-          <input type="text" placeholder= "Cidade"value={this.state.cityInput}
+          <input className="city" type="text" placeholder= "Cidade"value={this.state.cityInput}
           onChange={e => this.setState({ cityInput: e.target.value })}/>
+          <select value={this.state.eventTypeSelect} onChange={e => this.setState({ eventTypeSelect: e.target.value })}>
+            <option defaultValue="todos">Todos</option>
+            <option value="pagos">Pagos</option>
+            <option value="gratuitos">Gratuitos</option>
+          </select>
           <button type="submit">BUSCAR</button>
         </form>
       </Container>

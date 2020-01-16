@@ -9,14 +9,15 @@ import { Container } from './styles';
 const events = ({events}) => (
   <Container>
     {events.map( event => (
-      <Link to={{
-        pathname: `event/${event.name}`,
-        state: { event: event }
-      }}>
     <div className="box">
       <div className="card">
         <header>
+          <Link to={{
+          pathname: `event/${event.name}`,
+          state: { event: event }
+          }}>
           <img src={event.urlImage} alt="Evento"/>
+          </Link>
         </header>
       <ul>
         <li>
@@ -31,7 +32,6 @@ const events = ({events}) => (
       </ul>
       </div>
       </div>
-      </Link>
     ) )}
 </Container>
 )

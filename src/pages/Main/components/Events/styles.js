@@ -13,10 +13,10 @@ export const Container = styled.div`
 } */
 
 @media (min-width: 1200px) {
-margin: 50px 500px 0 500px;
+margin: 3% 25% 0 25%;
 display: grid;
 grid-template-columns: 33% 33% 33%;
-grid-gap: 10px;
+grid-gap: 5px;
 background-color: #eee;
 }
 

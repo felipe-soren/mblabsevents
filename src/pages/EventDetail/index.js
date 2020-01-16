@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import { withRouter, Redirect } from "react-router-dom";
 import { isAuthenticated } from "../../services/auth";
 import Api from '../../services/api'
+import TicketInfo from '../EventDetail/components/TicketInfo'
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
 
 import { Container } from './styles';
 
 class EventDetail extends React.Component {
   state = {
-    event: "",
+    event: [],
     userIsParticipant: false
   }
 
@@ -21,7 +24,6 @@ class EventDetail extends React.Component {
   
   async componentDidMount () {
     const response = await Api.get(`events/${this.props.location.state.event._id}`)
-    console.log(response.data)
     this.setState({ event: response.data })
     this.setState({ userIsParticipant: this.userIsParticipant() })
   }
@@ -50,11 +52,22 @@ class EventDetail extends React.Component {
       <Container>
         <header><img src={this.state.event.urlImage} alt="Evento"/></header>
         <main>
+        <ul>
+          <li>
+            <strong>{this.state.event.name}</strong>
+          </li>
+          <li>
+            <p>{`${this.state.event.institute} - ${this.state.event.city}, ${this.state.event.state}`}</p>
+          </li>
+          <li>
+            <p>{`${moment(this.state.event.date).locale('pt-br').format('llll')}`}</p>
+          </li>
+        </ul>
           <h1>{this.state.event.name}</h1>
           <p>{this.state.event.description}</p>
         </main>
         <aside>
-        <button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button>
+          {this.state.event.eventType === "Free" ? (<button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button> ) : (<TicketInfo price = {this.state.event.price}/>)}
         </aside>
       </Container>
       </>
