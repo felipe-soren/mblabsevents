@@ -10,12 +10,14 @@ export default class Main extends Component {
     events: [],
     eventInput: "",
     cityInput: "",
-    eventTypeSelect: ""
+    eventTypeSelect: "",
+    isLoading: true,
   }
 
   async componentDidMount() {
     const response = await Api.get('/events')
     this.setState({ events: response.data.docs })
+    this.setState({ isLoading: false })
   }
 
   searchEvent = async (e) => {
@@ -27,12 +29,11 @@ export default class Main extends Component {
     if(this.state.cityInput !== ""){
       filters = filters + `city=${this.state.cityInput}&`
     }
-    if(this.state.eventTypeSelect !== "Todos"){
-      if(this.state.eventTypeSelect === "gratuitos") {
-        filters = filters + `type=free`
-      } else {
-        filters = filters + `type=paid`
-      }
+    if(this.state.eventTypeSelect === "gratuitos") {
+      filters = filters + `type=free`
+    } 
+    if(this.state.eventTypeSelect === "pagos") {
+      filters = filters + `type=paid`
     }
     console.log(filters)
     const response = await Api.get(`/events?${filters}`)
@@ -57,7 +58,7 @@ export default class Main extends Component {
           <button type="submit">BUSCAR</button>
         </form>
       </Container>
-      <Events events= {this.state.events}/>
+      {this.state.isLoading ? (<h1>Carregando</h1>) : (<Events events= {this.state.events}/>)}
     </Fragment>
     )
   }

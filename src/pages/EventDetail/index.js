@@ -11,7 +11,8 @@ import { Container } from './styles';
 class EventDetail extends React.Component {
   state = {
     event: [],
-    userIsParticipant: false
+    userIsParticipant: false,
+    isLoading: true
   }
 
   userIsParticipant() {
@@ -23,7 +24,8 @@ class EventDetail extends React.Component {
   }
   
   async componentDidMount () {
-    const response = await Api.get(`events/${this.props.location.state.event._id}`)
+    const response = await Api.get(`events/${this.props.location.state.event._id}`)   
+    this.setState({ isLoading: false })
     this.setState({ event: response.data })
     this.setState({ userIsParticipant: this.userIsParticipant() })
   }
@@ -49,6 +51,7 @@ class EventDetail extends React.Component {
   render() {
     return(
       <>
+      {this.state.isLoading ? (<Container><h1>Carregando</h1></Container>) : (
       <Container>
         <header><img src={this.state.event.urlImage} alt="Evento"/></header>
         <main>
@@ -69,7 +72,7 @@ class EventDetail extends React.Component {
         <aside>
           {this.state.event.eventType === "Free" ? (<button className="btn" onClick={this.handleClick}>{this.state.userIsParticipant ? "DESISTIR" : "PARTICIPAR" }</button> ) : (<TicketInfo price = {this.state.event.price}/>)}
         </aside>
-      </Container>
+      </Container>)}
       </>
     )
   }
