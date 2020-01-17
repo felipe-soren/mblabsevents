@@ -8,14 +8,14 @@ class TicketInfo extends Component {
 
   handleClick = async (e) =>{
     console.log(this.props)
-    // if(!isAuthenticated()){
-    //   window.location.href = '/signin';
-    // } else {
-    //   console.log(this.props)
-    //   e.preventDefault()
-    //   window.location.href = `http://localhost:3333/payments/checkout/${this.props.event._id}/comprador@gmail.com/ingresso 
-    //   ${this.props.event.name}/${this.props.event.price}`;  
-    // }
+    if(!isAuthenticated()){
+      window.location.href = '/signin';
+    } else {
+      console.log(this.props)
+      e.preventDefault()
+      window.location.href = `https://checkoutmp.herokuapp.com/payments/checkout/${this.props.event._id}/comprador@gmail.com/ingresso 
+      ${this.props.event.name}/${this.props.event.price}`;  
+    }
   }
 
   render() {
