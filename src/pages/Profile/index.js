@@ -42,8 +42,7 @@ class Profile extends Component {
     return (
       <Container>
         <Form onSubmit={this.handleSignUp}>
-          Minhas Informações
-          {this.state.error && <p>{this.state.error}</p>}
+          <h3>Meu Perfil</h3>
           <input
             disabled={(this.state.disabled)? "disabled" : ""}
             type="text"

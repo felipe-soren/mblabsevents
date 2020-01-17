@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import ReactLoading from "react-loading";
 import Events from './components/Events'
 
 import Api from '../../services/api'
@@ -58,7 +59,7 @@ export default class Main extends Component {
           <button type="submit">BUSCAR</button>
         </form>
       </Container>
-      {this.state.isLoading ? (<h1>Carregando</h1>) : (<Events events= {this.state.events}/>)}
+      {this.state.isLoading ? (<ReactLoading type={"bars"} color={"black"}/>) : (<Events events= {this.state.events}/>)}
     </Fragment>
     )
   }

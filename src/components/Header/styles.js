@@ -36,4 +36,9 @@ export const Container = styled.header`
   li:last-child {
     margin-right: 0;
   }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 `

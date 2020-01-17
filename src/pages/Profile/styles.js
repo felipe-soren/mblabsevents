@@ -5,6 +5,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+
+  h3 {
+    color: #777;
+    padding: 5px
+  }
 `;
 
 export const Form = styled.form`

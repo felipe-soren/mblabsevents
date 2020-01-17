@@ -13,12 +13,6 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
-  
-  @media (max-width: 600px) {
-    form {
-      width: 100%;
-    }
-}
 
   .city {
     width: 20%
@@ -55,6 +49,13 @@ const Container = styled.div`
     width: 20%;
     border: 0;
     cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    form {
+      width: 100%;
+      justify-content: center;
+    }
   }
 `
 

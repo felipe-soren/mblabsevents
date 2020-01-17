@@ -24,7 +24,7 @@ export const Container = styled.div`
     .price, .total, .qtd, .type { 
     font-weight:bold;
     font-size:20px;
-  }
+    }
   }
   
   li {
