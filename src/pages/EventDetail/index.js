@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withRouter, Redirect } from "react-router-dom";
+import React from 'react';
+import { withRouter } from "react-router-dom";
 import { isAuthenticated } from "../../services/auth";
 import Api from '../../services/api'
 import ReactLoading from "react-loading";

@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react';
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import Api from "../../services/api"
 import Events from "../Main/components/Events"
 import { Container } from './styles';

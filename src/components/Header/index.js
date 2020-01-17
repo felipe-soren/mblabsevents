@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import logo from '../../assets/logomb.jpg'
 import { isAuthenticated, logout } from "../../services/auth";
 
@@ -28,8 +28,9 @@ export default class header extends Component {
         <nav>
           {this.state.authenticated ? (
           <>
-          <li><a onClick={this.handleClick} href="/app">Sair</a></li>
           <li><a href="/eventos">Meus Eventos</a></li>
+          <li><a href="/profile">Perfil</a></li>
+          <li><a onClick={this.handleClick} href="/app">Sair</a></li>
           </>
           ) : (
             <>

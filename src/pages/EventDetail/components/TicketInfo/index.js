@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from "react-router-dom";
 import { isAuthenticated } from "../../../../services/auth";
 
 import { Container } from './styles';
@@ -30,7 +29,7 @@ class TicketInfo extends Component {
           <p className="type">Ingresso</p>
           <p className="price">R$ {this.props.event.price}</p>
         </div>
-        <p className="sample">Parcele em até 3x</p>
+        <p className="sample">Parcele em até 10x</p>
       </li>
       <li className="total">
         <div className="t-info">
@@ -40,7 +39,7 @@ class TicketInfo extends Component {
           </div>
       </li>
     </ul>
-    <a href="">Fale com o organizador</a>
+    <a href="/">Fale com o organizador</a>
 </Container>
     );
   }
